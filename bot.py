@@ -1,4 +1,4 @@
-import discord, os, token, lists
+import discord, os, d_token, lists
 
 def do(text):
     os.system("python demonlist.py" + text[text.find(" ")+1:])
@@ -30,4 +30,4 @@ async def on_message(message):
         
         message.channel.send(send_text)
 
-bot.run(os.getenv(token.token))
+bot.run(os.getenv(d_token.token))
