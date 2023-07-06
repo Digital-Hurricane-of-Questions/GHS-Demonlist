@@ -1,4 +1,4 @@
-import discord, os, token
+import discord, os, token, lists
 
 bot = discord.Client()
 
@@ -12,6 +12,19 @@ async def on_message(message):
     if text.startswith("!demonlist"):
         space_point = text.find(" ")+1
         command = text[space_point: text[space_point+1:].find(" ")]
-        await message.channel.send(os.system("python demonlist.py" + text[text.find(" ")+1:]))
+        if command in lists.user_commands:
+            await send_text = os.system("python demonlist.py" + text[text.find(" ")+1:])
+        elif command in lists.admin_commands:
+            if lists.admin_role in message.author.roles():
+                await send_text = os.system("python demonlist.py" + text[text.find(" ")+1:])
+            else:
+                await send_text = "You don't have enough rights!"
+        elif command in lists.owner_commands:
+            if lists.owner_role in message.author.roles():
+                await send_text = os.system("python demonlist.py" + text[text.find(" ")+1:])
+            else:
+                await send_text = "You don't have enough rights!"
+        
+        message.channel.send(send_text)
 
 bot.run(os.getenv(token.token))
