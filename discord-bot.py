@@ -1,4 +1,4 @@
-import discord, os, d_token, lists
+import discord, os, discord-token, discord-lists
 
 def do(text):
     os.system("python demonlist.py" + text[text.find(" ")+1:])
