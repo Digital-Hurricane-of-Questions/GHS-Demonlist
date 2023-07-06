@@ -1,2 +1,2 @@
-This is repositiry of GHS Demonlist
+This is repositiry of GHS Demonlist.
 In future I will write the documentation of them
