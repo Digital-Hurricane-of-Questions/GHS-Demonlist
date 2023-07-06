@@ -15,19 +15,19 @@ async def on_message(message):
     if text.startswith("!demonlist"):
         space_point = text.find(" ")+1
         command = text[space_point: text[space_point+1:].find(" ")]
-        if command in lists.user_commands:
+        if command in discord-lists.user_commands:
             send_text = await do
-        elif command in lists.admin_commands:
-            if lists.admin_role in message.author.roles():
+        elif command in discord-lists.admin_commands:
+            if discord-lists.admin_role in message.author.roles():
                 send_text = await do
             else:
                 send_text = "You don't have enough rights!"
-        elif command in lists.owner_commands:
-            if lists.owner_role in message.author.roles():
+        elif command in discord-lists.owner_commands:
+            if discord-lists.owner_role in message.author.roles():
                 send_text = await do
             else:
                 send_text = "You don't have enough rights!"
         
         message.channel.send(send_text)
 
-bot.run(os.getenv(d_token.token))
+bot.run(os.getenv(discord-token.token))
