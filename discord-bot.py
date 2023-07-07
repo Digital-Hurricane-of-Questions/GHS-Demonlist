@@ -1,6 +1,6 @@
 import discord, os, discord-token, discord-lists
 
-def do(text):
+def do(text)
     os.system("python demonlist.py" + text[text.find(" ")+1:])
 
 bot = discord.Client()

@@ -3,26 +3,26 @@ import random, sys, sqlite3
 def show(table, filters):
     query = "SELECT * FROM " + table + " WHERE "
     for i in range(0, filters.size(), 2):
-        query += "" + filters[i] " = \"" + filters[i+1] + "\" "
+        query += "" + filters[i] + " = \"" + filters[i+1] + "\" "
     return query
 
 def add(table, filters):
     query = "INSERT INTO " + table + " VALUES "
     for i in range(0, filters.size(), 2):
-        query += filters[i] " = \"" + filters[i+1] + "\" "
+        query += filters[i] + " = \"" + filters[i+1] + "\" "
     return query
 
 def change(table, filters):
     query = "UPDATE " + table + " SET "
     for i in range(2, filters.size(), 2):
-        query += filters[i] " = \"" + filters[i+1] + "\" "
-    query += "WHERE " + filters[0] " = \"" + filters[1] + "\""
+        query += filters[i] + " = \"" + filters[i+1] + "\" "
+    query += "WHERE " + filters[0] + " = \"" + filters[1] + "\""
     return query
 
 def delete(table, filters):
     query = "DELETE FROM" + table + " WHERE "
     for i in range(0, filters.size(), 2):
-        query += filters[i] " = \"" + filters[i+1] + "\" "
+        query += filters[i] + " = \"" + filters[i+1] + "\" "
     return query
 
 if __name__ == "__main__":
